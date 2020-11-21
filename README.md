@@ -2,7 +2,7 @@
 
 Fall 2020, Turin, Italy; lockdown is on. Living in a world full of fake news and deniers I wanted to understand the quality of the air in my home, using a data driven approach. After many researches I found a cheap (~ 50$ compared to the mean price of 100-200$+ in the market) 7 in 1 sensor that collects all the data I looking for. It's code name is SM300D2-V02, produced in Shenzen by SmartMeasure Inc. It collects temperature, humidity, particulates (PM10 and PM2.5), carbon dioxide, formaldehyde and volatile organic compounds.
 
-This repository contains all the specs (very difficult to find) to connect this sensor via the RS-485 port to your computer and collect the data emitted into a CSV file. Enojy!
+This repository contains all the specs (very difficult to find) to connect this sensor via the RS-485 port to your computer and collect the data emitted into a CSV file. Enjoy!
 
 ## Plug'n'play
 
