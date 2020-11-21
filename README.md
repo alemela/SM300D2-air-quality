@@ -30,15 +30,15 @@ node log.js <interface-path> <output-path> <sampling (opt)>
 | Sampling | The sensor emits data every second; this parameter permits a longer sampling | `1` (in seconds), optional | `60`
 
 
-A minimal configuration example to start could be:
+A minimal configuration example to start from could be:
 ```
 node log.js /dev/ttyUSB0 /home/user/air-data.csv
 ```
-If you want to change the standard sampling, having for example one data every 2 minutes (the script calculate the mean value in the interval):
+If you want to change the standard sampling, having for example one point data every 2 minutes (the script calculate the mean value in the interval):
 ```
 node log.js /dev/ttyUSB0 /home/user/air-data.csv 120
 ```
-The script will last forever until you manually stop.
+The script will run forever until you manually stop it.
 
 ## SM300D2 specs
 ![Info](docs/sensor-info.jpg)
