@@ -1,6 +1,6 @@
 # Get CSV data from your SM300D2 air quality sensor
 
-Fall 2020, Turin, Italy; lockdown is on. Living in a world full of fake news and deniers I wanted to understand the quality of the air in my home, using a data driven approach. After many researches I found a cheap (~ 50$ compared to the mean price of 100-200$+ in the market) 7 in 1 sensor that collects all the data I looking for. It's code name is SM300D2-V02, produced in Shenzen by SmartMeasure Inc. It collects temperature, humidity, particulates (PM10 and PM2.5), carbon dioxide, formaldehyde and volatile organic compounds.
+Fall 2020, Turin, Italy; lockdown is on. Living in a world full of fake news and deniers I wanted to understand the quality of the air in my home, using a data driven approach. After many researches I found a cheap (~ 50$ compared to the mean price of 100-200$+ in the market) 7 in 1 sensor that collects all the data I'm looking for. It's code name is SM300D2-V02, produced in Shenzen by SmartMeasure Inc. It collects temperature, humidity, particulates (PM10 and PM2.5), carbon dioxide, formaldehyde and volatile organic compounds.
 
 This repository contains all the specs (very difficult to find) to connect this sensor via the RS-485 port to your computer and collect the data emitted into a CSV file. Enjoy!
 
@@ -16,7 +16,7 @@ Plug the sensor via the RS-485 port to your computer and see which interface pat
 
 In unix like OSes a useful command could be `dmesg | grep tty` (generally wants sudo).
 
-Examples of paths you can obtains are: `/dev/ttyS0`, `/dev/ttyS1`, `/dev/ttyUSB0`, `/dev/ttyUBS1`
+Examples of paths you can obtain are: `/dev/ttyS0`, `/dev/ttyS1`, `/dev/ttyUSB0`, `/dev/ttyUBS1`
 
 ### Launch!
 
@@ -25,16 +25,16 @@ node log.js <interface-path> <output-path> <sampling (opt)>
 ```
 | Parameter | Purpose | Default | Example
 | ------ | ---- | ------- | ---|
-| Interface path | Connect to the right serial port | None, you must provide | `/dev/ttyUSB0`
-| Output path | The filename where will be written the CSV | None, you must provide | `/home/user/air-data.csv`
-| Sampling | The sensor emits data every second; this parameter permits a longer sampling | `1` (in seconds), optional | `60`
+| Interface path | Connect to the right serial port | None, you must provide it | `/dev/ttyUSB0`
+| Output path | The filename where will be written the CSV | None, you must provide it | `/home/user/air-data.csv`
+| Sampling | The sensor emits data every second; this parameter allows a longer sampling | `1` (in seconds), optional | `60`
 
 
 A minimal configuration example to start from could be:
 ```
 node log.js /dev/ttyUSB0 /home/user/air-data.csv
 ```
-If you want to change the standard sampling, having for example one point data every 2 minutes (the script calculate the mean value in the interval):
+If you want to change the standard sampling, having for example one data point every 2 minutes (the script calculates the mean value in the interval):
 ```
 node log.js /dev/ttyUSB0 /home/user/air-data.csv 120
 ```
@@ -81,6 +81,6 @@ The data coming from the serial interface is organized in 17-bytes blocks.
 | 16 | Data | Temperature fractional part |
 | 17 | Checksum | Checksum |
 
-All the data comes in hexadecimal form and are calculated with the following algorithms (don't worry, this repo does the job!):
+All data are represented as binary digits and can be interpreted with the following algorithms (don't worry, this repo does the job!):
 
 ![Algorithms](docs/algorithms.jpg)
