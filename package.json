@@ -1,0 +1,23 @@
+{
+  "name": "sm300d2-air-quality",
+  "version": "1.0.0",
+  "description": "Get CSV data from your SM300D2 air quality sensor (eCO₂, eCH₂O, TVOC, PM 2.5, PM 10, temperature, humidity) via RS-485 port",
+  "main": "log.js",
+  "dependencies": {
+    "serialport": "^9.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alemela/SM300D2-air-quality.git"
+  },
+  "author": "Alessio Melandri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alemela/SM300D2-air-quality/issues"
+  },
+  "homepage": "https://github.com/alemela/SM300D2-air-quality#readme"
+}
