@@ -1,6 +1,6 @@
 # Get CSV data from your SM300D2 air quality sensor
 
-Fall 2020, Turin, Italy; lockdown is on. Living in a world full of fake news and deniers I wanted to understand the quality of the air in my home, using a data driven approach. After many researches I found a cheap (~ 50$ compared to the mean price of 100-200$+ in the market) 7 in 1 sensor that collects all the data I looking for. It's code name is SM300D2-V02, produced in Shenzen by SmartMeasure Inc. It collect temperature, humidity, particulates (PM10 and PM2.5), carbon dioxide, formaldehyde, volatile organic compounds.
+Fall 2020, Turin, Italy; lockdown is on. Living in a world full of fake news and deniers I wanted to understand the quality of the air in my home, using a data driven approach. After many researches I found a cheap (~ 50$ compared to the mean price of 100-200$+ in the market) 7 in 1 sensor that collects all the data I looking for. It's code name is SM300D2-V02, produced in Shenzen by SmartMeasure Inc. It collects temperature, humidity, particulates (PM10 and PM2.5), carbon dioxide, formaldehyde and volatile organic compounds.
 
 This repository contains all the specs (very difficult to find) to connect this sensor via the RS-485 port to your computer and collect the data emitted into a CSV file. Enojy!
 
@@ -27,16 +27,16 @@ node log.js <interface-path> <output-path> <sampling (opt)>
 | ------ | ---- | ------- | ---|
 | Interface path | Connect to the right serial port | None, you must provide | `/dev/ttyUSB0`
 | Output path | The filename where will be written the CSV | None, you must provide | `/home/user/air-data.csv`
-| Sampling | The sensor emits data every second; this parameter permits a longer sampling | None (in seconds), optional | `60`
+| Sampling | The sensor emits data every second; this parameter permits a longer sampling | `1` (in seconds), optional | `60`
 
 
-A minimal configuration example to start is:
+A minimal configuration example to start could be:
 ```
-node log.js /dev/ttyUSB0
+node log.js /dev/ttyUSB0 /home/user/air-data.csv
 ```
-If you want to change the standard sampling, having for example one data every 2 minutes:
+If you want to change the standard sampling, having for example one data every 2 minutes (the script calculate the mean value in the interval):
 ```
-node log.js /dev/ttyUSB0 120
+node log.js /dev/ttyUSB0 /home/user/air-data.csv 120
 ```
 The script will last forever until you manually stop.
 
